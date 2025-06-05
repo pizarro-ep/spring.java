@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${Titulo}">INFO</title>
+</head>
+
+<body>
+    <span th:text="${Titulo}"></span>
+    <span th:text="${Servidor}"></span>
+    <span th:text="${Ip}"></span>
+
+    <li><strong>Nombre de usuario:</strong> <span th:text="${User.username}"></span></li>
+    <li><strong>Nombres:</strong> <span th:text="${User.names}"></span></li>
+    <li><strong>Último acceso:</strong> <span
+            th:text="${User.last_login != null ? User.last_login : 'No existe'}"></span>
+    </li>
+
+    <br><br>
+
+    <table border="1">
+        <tr>
+            <th>Username</th>
+            <th>Names</th>
+            <th>Surnames</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="User : ${Users}">
+            <td th:text="${User.username}"></td>
+            <td th:text="${User.names}"></td>
+            <td th:text="${User.surnames}"></td>
+            <td th:text="${User.email}"></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
