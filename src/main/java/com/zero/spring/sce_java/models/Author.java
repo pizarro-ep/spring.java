@@ -19,6 +19,4 @@ public class Author {
     private Integer id;
     private String name, surnames, phone;
 
-    @OneToMany(mappedBy = "author")
-    List<Book> books;
 }
