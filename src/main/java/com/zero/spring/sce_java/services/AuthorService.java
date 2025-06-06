@@ -26,6 +26,13 @@ public class AuthorService {
         return (Author) authorRepository.save(author);
     }
 
+    public Author update(Integer id, Author author) {
+        Author existAuthor = authorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Author not found: " + id));
+
+        return (Author) authorRepository.save(existAuthor);
+    }
+
     public void delete(Integer id) {
         authorRepository.deleteById(id);
     }

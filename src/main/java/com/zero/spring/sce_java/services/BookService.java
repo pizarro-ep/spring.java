@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zero.spring.sce_java.models.Author;
 import com.zero.spring.sce_java.models.Book;
 import com.zero.spring.sce_java.repositories.IBookRepository;
 
@@ -24,6 +25,13 @@ public class BookService {
 
     public Book save(Book book) {
         return (Book) bookRepository.save(book);
+    }
+
+    public Book update(Integer id, Book author) {
+        Book existBook = bookRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found: " + id));
+
+        return (Book) bookRepository.save(existBook);
     }
 
     public void delete(Integer id) {
